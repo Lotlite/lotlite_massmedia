@@ -1,4 +1,4 @@
-// File: C:\Users\USER\OneDrive\Desktop\New folder\lotlite_massmedia\src\app\layout.tsx
+// File: C:\Users\Shubham\OneDrive\Desktop\Final\lotlite_massmedia\src\app\layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

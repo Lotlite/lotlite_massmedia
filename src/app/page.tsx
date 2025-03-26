@@ -79,49 +79,22 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* Fixed Video Background */}
-      <div className="fixed top-0 left-0 w-full h-screen z-[-1]">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-          style={{ objectPosition: 'center center' }}
-        >
-          <source src="/images/3129576-uhd_3840_2160_30fps.mp4" type="video/mp4" />
-        </video>
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/50"></div>
-      </div>
-
       {/* Hero Section */}
-      <section className="relative h-screen w-full flex items-center justify-center text-white">
-        {/* Content */}
-        <div className="relative z-10 text-center px-4">
-          <motion.h1 
-            className="text-5xl md:text-6xl font-bold mb-6"
-            {...fadeInUp}
+      <section className="relative h-screen w-full flex items-center justify-center text-white overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center center' }}
           >
-            Transform Your Digital Presence
-          </motion.h1>
-          <motion.p 
-            className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.7 }}
-          >
-            Comprehensive digital solutions to help your business grow and succeed in the modern age.
-          </motion.p>
-          <motion.a
-            href="/contact"
-            className="inline-block bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-8 py-3 rounded-md text-lg font-semibold transition-all duration-300 border border-white/20"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.7 }}
-          >
-            Get Started
-          </motion.a>
+            <source src="/images/landing page video.mp4" type="video/mp4" />
+          </video>
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
       </section>
 
