@@ -252,6 +252,14 @@ const Navbar = () => {
               >
                 Blogs
               </Link>
+              <Link 
+                href="/contact" 
+                className={`text-sm font-bold transition-all duration-300 hover:scale-105 ${
+                  pathname === '/contact' ? 'text-blue-400' : 'text-white hover:text-blue-200'
+                } px-4 py-2 rounded-md hover:bg-white/10`}
+              >
+                Contact Us
+              </Link>
             </div>
           </div>
 
@@ -319,6 +327,14 @@ const Navbar = () => {
             </Link>
             <Link
               href="/contact"
+              className={`block px-3 py-2 rounded-md text-base font-medium ${
+                pathname === '/contact' ? 'text-blue-400' : 'text-white hover:text-blue-200'
+              } hover:bg-white/10`}
+            >
+              Contact Us
+            </Link>
+            <Link
+              href="/contact#quote"
               className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-blue-200 hover:bg-white/10"
             >
               Get Started
