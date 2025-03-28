@@ -6,10 +6,7 @@ import { MapPinIcon, PhoneIcon, EnvelopeIcon, PaperAirplaneIcon } from '@heroico
 
 const ContactPage = () => {
   return (
-    <main className="flex min-h-screen flex-col relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-slate-900 to-black -z-10" />
-
+    <main className="flex min-h-screen flex-col relative bg-gray-900">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

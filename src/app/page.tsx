@@ -3,6 +3,7 @@
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import ServicesSection from '@/components/ServicesSection';
+import DigitalMarketingSection from '@/components/DigitalMarketingSection';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -71,41 +72,57 @@ const useCountAnimation = (end: number, duration: number = 2) => {
   return { count, elementRef };
 };
 
+// Parallax Effect for Video
 export default function Home() {
+  const [videoPosition, setVideoPosition] = useState({ x: 0, y: 0 });
   const { count: projectsCount, elementRef: projectsRef } = useCountAnimation(2000);
   const { count: clientsCount, elementRef: clientsRef } = useCountAnimation(300);
   const { count: teamCount, elementRef: teamRef } = useCountAnimation(50);
   const { count: satisfactionCount, elementRef: satisfactionRef } = useCountAnimation(98);
 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const { clientX, clientY } = e;
+    const moveX = (clientX / window.innerWidth - 0.5) * 30; // Adjust sensitivity
+    const moveY = (clientY / window.innerHeight - 0.5) * 30;
+    setVideoPosition({ x: moveX, y: moveY });
+  };
+
   return (
     <main className="min-h-screen">
-      {/* Fixed Video Background */}
-      <div className="fixed top-0 left-0 w-full h-screen z-[-1]">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-          style={{ objectPosition: 'center center' }}
-        >
-          <source src="/images/3129576-uhd_3840_2160_30fps.mp4" type="video/mp4" />
-        </video>
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/50"></div>
-      </div>
-
       {/* Hero Section */}
-      <section className="relative h-screen w-full flex items-center justify-center text-white">
-        {/* Content */}
-        <div className="relative z-10 text-center px-4">
-          <motion.h1 
+      <section
+        className="relative h-screen w-full flex items-center justify-center text-white overflow-hidden"
+        onMouseMove={handleMouseMove}
+      >
+        {/* Background Video (Only for Hero Section) */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <motion.video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            style={{
+              objectPosition: "center center",
+              transform: `translate(${videoPosition.x}px, ${videoPosition.y}px)`,
+            }}
+          >
+            <source src="/images/landing page video.mp4" type="video/mp4" />
+          </motion.video>
+
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        {/* Hero Content */}
+        {/* <div className="relative z-10 text-center px-4">
+          <motion.h1
             className="text-5xl md:text-6xl font-bold mb-6"
             {...fadeInUp}
           >
             Transform Your Digital Presence
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,48 +139,51 @@ export default function Home() {
           >
             Get Started
           </motion.a>
-        </div>
+        </div> */}
       </section>
 
+      {/* Digital Marketing Section */}
+      <DigitalMarketingSection />
+
       {/* Stats Section */}
-      <section className="py-16 bg-gray-900 relative">
+      <section className="py-16 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <motion.div 
               ref={projectsRef}
-              className="text-center bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20"
+              className="text-center bg-gray-50 rounded-xl p-6 border border-gray-200"
               {...fadeInLeft}
             >
-              <div className="text-4xl font-bold text-white mb-2">{projectsCount}+</div>
-              <div className="text-white/80">Projects Completed</div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">{projectsCount}+</div>
+              <div className="text-gray-600">Projects Completed</div>
             </motion.div>
             <motion.div 
               ref={clientsRef}
-              className="text-center bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20"
+              className="text-center bg-gray-50 rounded-xl p-6 border border-gray-200"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.7 }}
             >
-              <div className="text-4xl font-bold text-white mb-2">{clientsCount}+</div>
-              <div className="text-white/80">Happy Clients</div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">{clientsCount}+</div>
+              <div className="text-gray-600">Happy Clients</div>
             </motion.div>
             <motion.div 
               ref={teamRef}
-              className="text-center bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20"
+              className="text-center bg-gray-50 rounded-xl p-6 border border-gray-200"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.7 }}
             >
-              <div className="text-4xl font-bold text-white mb-2">{teamCount}+</div>
-              <div className="text-white/80">Team Members</div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">{teamCount}+</div>
+              <div className="text-gray-600">Team Members</div>
             </motion.div>
             <motion.div 
               ref={satisfactionRef}
-              className="text-center bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20"
+              className="text-center bg-gray-50 rounded-xl p-6 border border-gray-200"
               {...fadeInRight}
             >
-              <div className="text-4xl font-bold text-white mb-2">{satisfactionCount}%</div>
-              <div className="text-white/80">Client Satisfaction</div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">{satisfactionCount}%</div>
+              <div className="text-gray-600">Client Satisfaction</div>
             </motion.div>
           </div>
         </div>
@@ -173,4 +193,4 @@ export default function Home() {
       <ServicesSection />
     </main>
   );
-} 
+}

@@ -8,10 +8,17 @@ interface WhatsAppButtonProps {
   message?: string;
 }
 
-const WhatsAppButton = ({ phoneNumber, message = "Hello! I have a question about your services." }: WhatsAppButtonProps) => {
+const WhatsAppButton = ({ 
+  phoneNumber, 
+  message = "Hi! I'm interested in your digital marketing services. Could you please provide more information about your packages and pricing?" 
+}: WhatsAppButtonProps) => {
   const handleClick = () => {
+    // Remove any non-numeric characters from the phone number
+    const cleanNumber = phoneNumber.replace(/\D/g, '');
+    // Ensure the number starts with country code (91 for India)
+    const formattedNumber = cleanNumber.startsWith('91') ? cleanNumber : `91${cleanNumber}`;
     const encodedMessage = encodeURIComponent(message);
-    const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    const url = `https://wa.me/${formattedNumber}?text=${encodedMessage}`;
     window.open(url, '_blank');
   };
 
