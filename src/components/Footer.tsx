@@ -36,10 +36,15 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Our Services</h3>
             <ul className="space-y-3">
-              {['SEO', 'Social Media Marketing', 'Paid Advertising', 'Content Marketing'].map((service) => (
-                <li key={service} className="relative group">
-                  <Link href={`/services/${service.toLowerCase().replace(' ', '-')}`} className="text-gray-400 hover:text-white transition-colors inline-block">
-                    {service}
+              {[
+                { name: 'SEO', path: '/services/seo' },
+                { name: 'Social Media Marketing', path: '/services/social-media-marketing' },
+                { name: 'Paid Advertising', path: '/services/paid-advertising' },
+                { name: 'Content Marketing', path: '/services/content-marketing' }
+              ].map((service) => (
+                <li key={service.name} className="relative group">
+                  <Link href={service.path} className="text-gray-400 hover:text-white transition-colors inline-block">
+                    {service.name}
                     <span className="block h-[2px] bg-white w-0 transition-all duration-300 group-hover:w-full"></span>
                   </Link>
                 </li>

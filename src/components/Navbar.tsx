@@ -169,7 +169,7 @@ const Navbar = () => {
                         <p className="text-xs text-white/80 group-hover:text-white transition-all duration-300 pl-8">Improve your website's visibility and rankings</p>
                       </Link>
 
-                      <Link href="/services/smm" className="group transition-all duration-300 p-3 rounded-xl hover:bg-white/20 hover:shadow-md hover:scale-[1.02] border border-transparent hover:border-white/30">
+                      <Link href="/services/social-media-marketing" className="group transition-all duration-300 p-3 rounded-xl hover:bg-white/20 hover:shadow-md hover:scale-[1.02] border border-transparent hover:border-white/30">
                         <div className="flex items-center space-x-3 mb-1">
                           <div className="p-1.5 bg-white/20 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
                             <svg className="w-4 h-4 text-white transition-all duration-300 group-hover:text-blue-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
