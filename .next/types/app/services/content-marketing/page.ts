@@ -1,8 +1,8 @@
-// File: C:\Users\Shubham\OneDrive\Desktop\Final\lotlite_massmedia\src\app\contact\page.tsx
-import * as entry from '../../../../src/app/contact/page.js'
+// File: C:\Users\Shubham\OneDrive\Desktop\Final\lotlite_massmedia\src\app\services\content-marketing\page.tsx
+import * as entry from '../../../../../src/app/services/content-marketing/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../src/app/contact/page.js')
+type TEntry = typeof import('../../../../../src/app/services/content-marketing/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
