@@ -100,7 +100,7 @@ export default function SEOPage() {
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
-        <div className="absolute inset-0 bg-[url('/images/baground image.jpg')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-[url('/images/background.jpg')] bg-cover bg-center opacity-20" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
