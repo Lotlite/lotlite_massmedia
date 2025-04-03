@@ -46,10 +46,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/services/social-media-marketing/page.js"
     ],
-    "/not-found": [
+    "/services/content-marketing/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/chunks/app/services/content-marketing/page.js"
+    ],
+    "/services/local-seo/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/local-seo/page.js"
     ]
   }
 }

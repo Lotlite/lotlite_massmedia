@@ -74,25 +74,16 @@ const useCountAnimation = (end: number, duration: number = 2) => {
 
 // Parallax Effect for Video
 export default function Home() {
-  const [videoPosition, setVideoPosition] = useState({ x: 0, y: 0 });
   const { count: projectsCount, elementRef: projectsRef } = useCountAnimation(2000);
   const { count: clientsCount, elementRef: clientsRef } = useCountAnimation(300);
   const { count: teamCount, elementRef: teamRef } = useCountAnimation(50);
   const { count: satisfactionCount, elementRef: satisfactionRef } = useCountAnimation(98);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const { clientX, clientY } = e;
-    const moveX = (clientX / window.innerWidth - 0.5) * 30; // Adjust sensitivity
-    const moveY = (clientY / window.innerHeight - 0.5) * 30;
-    setVideoPosition({ x: moveX, y: moveY });
-  };
 
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
       <section
         className="relative h-screen w-full flex items-center justify-center text-white overflow-hidden"
-        onMouseMove={handleMouseMove}
       >
         {/* Background Video (Only for Hero Section) */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -103,8 +94,7 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover"
             style={{
-              objectPosition: "center center",
-              transform: `translate(${videoPosition.x}px, ${videoPosition.y}px)`,
+              objectPosition: "center center"
             }}
           >
             <source src="/images/landing page video.mp4" type="video/mp4" />
