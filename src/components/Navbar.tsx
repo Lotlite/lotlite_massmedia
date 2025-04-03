@@ -245,12 +245,12 @@ const Navbar = () => {
                 About
               </Link>
               <Link 
-                href="/blogs" 
+                href="/blog" 
                 className={`text-sm font-bold transition-all duration-300 hover:scale-105 ${
-                  pathname === '/blogs' ? 'text-blue-400' : 'text-white hover:text-blue-200'
+                  pathname === '/blog' ? 'text-blue-400' : 'text-white hover:text-blue-200'
                 } px-4 py-2 rounded-md hover:bg-white/10`}
               >
-                Blogs
+                Blog
               </Link>
               <Link 
                 href="/contact" 
@@ -318,12 +318,12 @@ const Navbar = () => {
               About
             </Link>
             <Link
-              href="/blogs"
+              href="/blog"
               className={`block px-3 py-2 rounded-md text-base font-medium ${
-                pathname === '/blogs' ? 'text-blue-400' : 'text-white hover:text-blue-200'
+                pathname === '/blog' ? 'text-blue-400' : 'text-white hover:text-blue-200'
               } hover:bg-white/10`}
             >
-              Blogs
+              Blog
             </Link>
             <Link
               href="/contact"
