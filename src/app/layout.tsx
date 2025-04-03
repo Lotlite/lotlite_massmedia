@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import EnquiryButton from '@/components/EnquiryButton';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
             {children}
           </main>
         </div>
+        <EnquiryButton />
         <WhatsAppButton phoneNumber="8600021773" />
         <Footer />
       </body>

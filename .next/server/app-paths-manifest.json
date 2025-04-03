@@ -1,4 +1,9 @@
 {
-  "/page": "app/page.js",
-  "/services/content-marketing/page": "app/services/content-marketing/page.js"
+  "/not-found": "app/not-found.js",
+  "/services/web-design/page": "app/services/web-design/page.js",
+  "/about/page": "app/about/page.js",
+  "/services/seo/page": "app/services/seo/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/services/social-media-marketing/page": "app/services/social-media-marketing/page.js",
+  "/portfolio/page": "app/portfolio/page.js"
 }

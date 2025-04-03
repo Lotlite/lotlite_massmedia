@@ -72,15 +72,15 @@ const Navbar = () => {
                 {/* Customers Dropdown Menu */}
                 {isDropdownOpen && (
                   <div 
-                    className="absolute left-1/2 transform -translate-x-1/2 top-full w-[600px] bg-white/10 backdrop-blur-md rounded-xl shadow-lg py-4 z-50 transition-all duration-200 ease-in-out border border-white/20"
+                    className="absolute left-1/2 transform -translate-x-1/2 top-full w-[600px] bg-gray-900/95 backdrop-blur-xl rounded-xl shadow-2xl py-4 z-50 transition-all duration-200 ease-in-out border border-white/20"
                     onMouseEnter={() => setIsDropdownOpen(true)}
                     onMouseLeave={() => setIsDropdownOpen(false)}
                   >
                     <div className="grid grid-cols-2 gap-4 px-6">
                       {/* First pair - horizontal */}
-                      <Link href="/customers/small-brands" className="group transition-all duration-300 p-3 rounded-xl hover:bg-white/20 hover:shadow-md hover:scale-[1.02] border border-transparent hover:border-white/30">
+                      <Link href="/customers/small-brands" className="group transition-all duration-300 p-3 rounded-xl hover:bg-white/10 hover:shadow-lg hover:scale-[1.02] border border-transparent hover:border-white/30">
                         <div className="flex items-center space-x-3 mb-1">
-                          <div className="p-1.5 bg-white/20 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
+                          <div className="p-1.5 bg-white/10 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
                             <svg className="w-4 h-4 text-white transition-all duration-300 group-hover:text-blue-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
@@ -151,15 +151,15 @@ const Navbar = () => {
                 {/* Services Dropdown Menu */}
                 {isServicesOpen && (
                   <div 
-                    className="absolute left-1/2 transform -translate-x-1/2 top-full w-[600px] bg-white/10 backdrop-blur-md rounded-xl shadow-lg py-4 z-50 transition-all duration-200 ease-in-out border border-white/20"
+                    className="absolute left-1/2 transform -translate-x-1/2 top-full w-[600px] bg-gray-900/95 backdrop-blur-xl rounded-xl shadow-2xl py-4 z-50 transition-all duration-200 ease-in-out border border-white/20"
                     onMouseEnter={() => setIsServicesOpen(true)}
                     onMouseLeave={() => setIsServicesOpen(false)}
                   >
                     <div className="grid grid-cols-2 gap-4 px-6">
                       {/* First pair - horizontal */}
-                      <Link href="/services/seo" className="group transition-all duration-300 p-3 rounded-xl hover:bg-white/20 hover:shadow-md hover:scale-[1.02] border border-transparent hover:border-white/30">
+                      <Link href="/services/seo" className="group transition-all duration-300 p-3 rounded-xl hover:bg-white/10 hover:shadow-lg hover:scale-[1.02] border border-transparent hover:border-white/30">
                         <div className="flex items-center space-x-3 mb-1">
-                          <div className="p-1.5 bg-white/20 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
+                          <div className="p-1.5 bg-white/10 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
                             <svg className="w-4 h-4 text-white transition-all duration-300 group-hover:text-blue-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
