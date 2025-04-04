@@ -148,14 +148,14 @@ const BlogPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="relative py-20">
+      <section className="relative h-screen">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url("/images/blogs.jpeg")' }}
         >
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative z-10 h-full flex items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -165,9 +165,25 @@ const BlogPage = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Our Blog – Insights & Trends in Mass Media
             </h1>
-            <p className="text-xl text-white/90">
+            <p className="text-xl text-white/90 mb-8">
               Discover the latest trends, strategies, and insights in digital marketing, advertising, and brand development.
             </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                >
+                  Get Started
+                </motion.button>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -222,47 +238,86 @@ const BlogPage = () => {
       </section>
 
       {/* Blog Grid Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="py-16 relative">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/images/blog3.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           {/* Search and Categories Row */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col md:flex-row gap-6 mb-12"
+            className="flex flex-col md:flex-row gap-6 mb-12 bg-white/10 backdrop-blur-sm p-6 rounded-xl"
           >
             {/* Search */}
-            <div className="flex-1 bg-white p-6 rounded-xl shadow-md">
+            <div className="flex-1">
               <div className="relative">
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search articles..."
-                  className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+                  className="w-full px-4 py-2 rounded-lg border border-white/20 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent"
                 />
-                <svg className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
             </div>
 
             {/* Categories */}
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-bold mb-4">Categories</h3>
+            <div>
+              <h3 className="text-xl font-bold mb-4 text-white">Categories</h3>
               <div className="flex flex-wrap gap-2">
-                {categories.map((category) => (
-                  <button
+                {categories.map((category, index) => (
+                  <motion.button
                     key={category}
+                    initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ 
+                      duration: 0.4,
+                      delay: index * 0.1,
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 15
+                    }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      backgroundColor: "#3B82F6",
+                      color: "white",
+                      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                      y: -2
+                    }}
+                    whileTap={{ 
+                      scale: 0.95,
+                      y: 0
+                    }}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
+                      ${selectedCategory === category 
+                        ? 'bg-blue-600 text-white shadow-lg ring-2 ring-blue-400 ring-offset-2' 
+                        : 'bg-white/20 text-white hover:bg-white/30'}`}
                     onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-lg transition-colors ${
-                      selectedCategory === category
-                        ? "bg-blue-600 text-white"
-                        : "text-gray-600 hover:bg-gray-100"
-                    }`}
                   >
-                    {category}
-                  </button>
+                    <motion.span
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 + 0.2 }}
+                    >
+                      {category}
+                    </motion.span>
+                  </motion.button>
                 ))}
               </div>
             </div>
@@ -273,41 +328,80 @@ const BlogPage = () => {
             {filteredPosts.map((post, index) => (
               <motion.article
                 key={post.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300"
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                  y: -5
+                }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
               >
-                <div className="relative h-48">
+                <div className="relative h-48 overflow-hidden">
                   <Image
                     src={post.image}
                     alt={post.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileHover={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute bottom-0 left-0 right-0 p-4"
+                  >
+                    <span className="inline-block px-3 py-1 bg-blue-600 text-white rounded-full text-sm font-medium">
+                      {post.category}
+                    </span>
+                  </motion.div>
                 </div>
                 <div className="p-6">
-                  <span className="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-3">
-                    {post.category}
-                  </span>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <motion.h3 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                    className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300"
+                  >
                     {post.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">
+                  </motion.h3>
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.3 }}
+                    className="text-white/80 mb-4 group-hover:text-white transition-colors duration-300"
+                  >
                     {post.excerpt}
-                  </p>
+                  </motion.p>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <div className="w-8 h-8 bg-gray-200 rounded-full mr-3"></div>
+                    <motion.div 
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.4 }}
+                      className="flex items-center"
+                    >
+                      <div className="w-8 h-8 bg-white/20 rounded-full mr-3 group-hover:bg-blue-100 transition-colors duration-300"></div>
                       <div>
-                        <p className="text-sm font-medium text-gray-900">{post.author}</p>
-                        <p className="text-xs text-gray-500">{post.date}</p>
+                        <p className="text-sm font-medium text-white group-hover:text-blue-400 transition-colors duration-300">{post.author}</p>
+                        <p className="text-xs text-white/60">{post.date}</p>
                       </div>
-                    </div>
+                    </motion.div>
                     <Link href={`/blog/${post.slug}`}>
-                      <button className="text-blue-600 hover:text-blue-700 font-medium">
-                        Read More →
-                      </button>
+                      <motion.button 
+                        whileHover={{ scale: 1.1, x: 5 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="text-white hover:text-blue-400 font-medium flex items-center gap-1"
+                      >
+                        Read More
+                        <motion.span
+                          initial={{ x: 0 }}
+                          whileHover={{ x: 5 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          →
+                        </motion.span>
+                      </motion.button>
                     </Link>
                   </div>
                 </div>
@@ -318,31 +412,57 @@ const BlogPage = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-700">
-        <div className="container mx-auto px-4">
-          <motion.div
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="py-16 relative"
+      >
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url("/images/blogs2.jpg")' }}
+        >
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl mx-auto text-center text-white"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-3xl font-bold mb-4 text-white"
           >
-            <h2 className="text-3xl font-bold mb-4">Stay Updated with Latest Insights</h2>
-            <p className="text-white/90 mb-8">
-              Subscribe to our newsletter for weekly updates on digital marketing trends and strategies.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-3 rounded-full border-2 border-white/20 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:border-white"
-              />
-              <button className="px-8 py-3 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition-colors">
-                Subscribe
-              </button>
-            </div>
+            Stay Updated with Latest Insights
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-white/90 mb-8"
+          >
+            Subscribe to our newsletter for weekly updates on digital marketing trends and strategies.
+          </motion.p>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+          >
+            <motion.input
+              whileFocus={{ scale: 1.02 }}
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent"
+            />
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-3 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+            >
+              Subscribe
+            </motion.button>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };
