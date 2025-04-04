@@ -30,54 +30,86 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <motion.h2 
-          className="text-3xl font-bold text-center mb-12"
+    <section className="py-16 relative overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/images/brandingpagebackground.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-gray-800/90" />
+      </div>
+
+      {/* Content */}
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          Frequently Asked Questions
-        </motion.h2>
+          <motion.h2 
+            className="text-4xl font-bold text-white"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Frequently Asked Questions
+          </motion.h2>
+          <motion.div
+            className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-4"
+            initial={{ width: 0 }}
+            whileInView={{ width: 96 }}
+            transition={{ duration: 0.8 }}
+          />
+        </motion.div>
+
         <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
-              key={index}
-              className="border rounded-lg overflow-hidden"
+              key={faq.question}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ 
-                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
-                scale: 1.01
-              }}
+              className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden"
             >
               <button
-                className="w-full px-6 py-4 text-left flex justify-between items-center bg-white hover:bg-gray-50 transition-colors"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                className="w-full px-6 py-4 text-left flex justify-between items-center"
               >
-                <span className="font-semibold text-lg">{faq.question}</span>
-                <motion.span
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
+                <span className="text-white font-semibold">{faq.question}</span>
+                <svg
+                  className={`w-5 h-5 text-white transform transition-transform ${
+                    openIndex === index ? 'rotate-180' : ''
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  ▼
-                </motion.span>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
               </button>
               <motion.div
                 initial={false}
-                animate={{ 
-                  height: openIndex === index ? "auto" : 0,
-                  opacity: openIndex === index ? 1 : 0
-                }}
+                animate={{ height: openIndex === index ? 'auto' : 0 }}
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="px-6 py-4 bg-gray-50">
-                  <p className="text-gray-600">{faq.answer}</p>
+                <div className="px-6 pb-4">
+                  <p className="text-white/90">{faq.answer}</p>
                 </div>
               </motion.div>
             </motion.div>

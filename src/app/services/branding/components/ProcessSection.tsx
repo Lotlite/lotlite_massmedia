@@ -50,10 +50,26 @@ const Arrow = () => (
 
 export default function ProcessSection() {
   return (
-    <section className="py-16">
-      <div className="container mx-auto px-4">
+    <section className="py-16 relative overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/images/brandingpagebackground.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-gray-800/90" />
+      </div>
+
+      {/* Content */}
+      <div className="container mx-auto px-4 relative z-10">
         <motion.h2 
-          className="text-4xl font-bold text-center mb-16 text-blue-900"
+          className="text-4xl font-bold text-center mb-16 text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -94,7 +110,7 @@ export default function ProcessSection() {
                 <div className={`${step.color} text-white p-4 rounded-lg mb-4 text-center min-h-[80px] flex items-center justify-center`}>
                   <h3 className="text-lg font-bold">{step.title}</h3>
                 </div>
-                <p className="text-blue-900 text-center text-sm">
+                <p className="text-white text-center text-sm">
                   {step.description}
                 </p>
               </motion.div>

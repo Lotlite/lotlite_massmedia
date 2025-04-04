@@ -4,40 +4,66 @@ import { motion } from 'framer-motion';
 
 export default function AboutSection() {
   return (
-    <section className="py-16">
-      <div className="container mx-auto px-4">
-        <motion.div 
-          className="max-w-3xl mx-auto text-center mb-12"
+    <section className="py-16 relative overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/images/brandingpagebackground.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-gray-800/90" />
+      </div>
+
+      {/* Content */}
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold mb-6">Why Branding Matters</h2>
-          <p className="text-gray-600">
-            A strong brand is more than just a logo. It's the complete experience your customers have with your business.
-            We help you create a brand that resonates with your audience and stands out in the market.
-          </p>
+          <motion.h2 
+            className="text-4xl font-bold text-white"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            About Our Branding Services
+          </motion.h2>
+          <motion.div
+            className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mt-4"
+            initial={{ width: 0 }}
+            whileInView={{ width: 96 }}
+            transition={{ duration: 0.8 }}
+          />
         </motion.div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { title: "Build Trust", description: "A consistent brand builds credibility and trust with your audience." },
-            { title: "Stand Out", description: "Differentiate your business from competitors with a unique brand identity." },
-            { title: "Drive Growth", description: "A strong brand leads to increased recognition and customer loyalty." }
-          ].map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-              className="bg-white p-6 rounded-xl shadow-md"
-            >
-              <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-              <p className="text-gray-600">{item.description}</p>
-            </motion.div>
-          ))}
+
+        <div className="max-w-3xl mx-auto">
+          <motion.p 
+            className="text-white/90 text-lg mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            We are passionate about creating powerful brand identities that help businesses stand out in today's competitive market. Our team of experienced designers and strategists work together to deliver comprehensive branding solutions that resonate with your target audience and drive business growth.
+          </motion.p>
+          <motion.p 
+            className="text-white/90 text-lg"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            From logo design to brand strategy, we take a holistic approach to branding that ensures consistency across all touchpoints and creates lasting impressions.
+          </motion.p>
         </div>
       </div>
     </section>
