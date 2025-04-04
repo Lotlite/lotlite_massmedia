@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import WhatsAppButton from '@/components/WhatsAppButton';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import FloatingContact from '@/components/FloatingContact';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'LotLite - Your Marketing Solution',
-  description: 'Modern marketing solutions for your business',
+  title: 'MarketPro - Digital Marketing Solutions',
+  description: 'Transform your digital presence with our comprehensive marketing solutions.',
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
             {children}
           </main>
         </div>
-        <WhatsAppButton phoneNumber="8600021773" />
+        <FloatingContact />
         <Footer />
       </body>
     </html>
