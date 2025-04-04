@@ -1,16 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-<<<<<<< HEAD
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import FloatingContact from '@/components/FloatingContact';
-=======
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import EnquiryButton from '@/components/EnquiryButton';
->>>>>>> c72fcf85543050bf1c172460f0cd4936de4c9126
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -33,12 +27,9 @@ export default function RootLayout({
             {children}
           </main>
         </div>
-<<<<<<< HEAD
-        <FloatingContact />
-=======
+         {/* Here you can change your whatapp number */}
+        <WhatsAppButton phoneNumber="123456789" />
         <EnquiryButton />
-        <WhatsAppButton phoneNumber="8600021773" />
->>>>>>> c72fcf85543050bf1c172460f0cd4936de4c9126
         <Footer />
       </body>
     </html>

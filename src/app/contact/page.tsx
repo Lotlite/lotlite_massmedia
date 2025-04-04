@@ -17,7 +17,7 @@ const floatingAnimation = {
 const contactInfo = [
   {
     title: 'Email',
-    value: 'contact@marketpro.com',
+    value: 'contact@lotlitefintech.com',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -26,7 +26,7 @@ const contactInfo = [
   },
   {
     title: 'Phone',
-    value: '+1 (555) 123-4567',
+    value: '+91 8805843309, +91 9766499364',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -35,7 +35,7 @@ const contactInfo = [
   },
   {
     title: 'Address',
-    value: '123 Business Street, Suite 100, New York, NY 10001',
+    value: '122, Gera Imperium, Opp- Wipro, Hinjewadi Phase 2, Rajiv Gandhi Infotech Park, Pune, Maharashtra 411057',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -71,8 +71,15 @@ export default function ContactPage() {
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     setIsSubmitting(false);
-    // Redirect to thank you page or show success message
-    router.push('/thank-you');
+    // Reset form data
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    });
+    // Refresh the page
+    window.location.reload();
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
