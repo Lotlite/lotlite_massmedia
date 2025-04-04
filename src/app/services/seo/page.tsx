@@ -316,7 +316,7 @@ export default function SEOPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -328,18 +328,42 @@ export default function SEOPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="inline-block px-4 py-2 bg-blue-100 rounded-full mb-6"
+              className="inline-block px-4 py-2 bg-purple-100 rounded-full mb-6"
             >
-              <span className="text-blue-600 font-semibold">Our Process</span>
+              <span className="text-purple-600 font-semibold">Our Process</span>
             </motion.div>
-            <h2 className="text-4xl font-bold text-blue-600">Our SEO Process</h2>
+            <h2 className="text-4xl font-bold text-purple-600">Our SEO Process</h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: 'Analysis', description: 'Comprehensive website audit and competitor analysis' },
-              { title: 'Strategy', description: 'Custom SEO strategy and keyword research' },
-              { title: 'Optimization', description: 'Technical and content optimization' },
-              { title: 'Monitoring', description: 'Performance tracking and continuous improvement' }
+              { 
+                title: 'Research & Analysis', 
+                description: 'Deep dive into your market, competitors, and target audience',
+                icon: '🔍',
+                color: 'from-purple-500 to-purple-600',
+                features: ['Keyword Research', 'Competitor Analysis', 'Market Trends']
+              },
+              { 
+                title: 'On-Page SEO', 
+                description: 'Optimize your website content and structure',
+                icon: '📝',
+                color: 'from-blue-500 to-blue-600',
+                features: ['Content Optimization', 'Meta Tags', 'Internal Linking']
+              },
+              { 
+                title: 'Technical SEO', 
+                description: 'Enhance website performance and structure',
+                icon: '⚙️',
+                color: 'from-green-500 to-green-600',
+                features: ['Site Speed', 'Mobile Optimization', 'Schema Markup']
+              },
+              { 
+                title: 'Monitoring & Reporting', 
+                description: 'Track progress and optimize strategies',
+                icon: '📊',
+                color: 'from-orange-500 to-orange-600',
+                features: ['Performance Metrics', 'Ranking Reports', 'ROI Analysis']
+              }
             ].map((step, index) => (
               <motion.div
                 key={step.title}
@@ -350,7 +374,7 @@ export default function SEOPage() {
                 whileHover={{ y: -5 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
                   initial={false}
                   animate={{
                     scale: [1, 1.2, 1],
@@ -364,15 +388,69 @@ export default function SEOPage() {
                 />
                 <div className="relative z-10">
                   <motion.div
-                    className="text-blue-600 text-5xl font-bold mb-6"
+                    className="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300"
+                    animate={{
+                      y: [0, -5, 0],
+                      rotate: [0, 5, 0]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    {step.icon}
+                  </motion.div>
+                  <motion.div
+                    className="text-purple-600 text-5xl font-bold mb-6"
                     whileHover={{ scale: 1.1 }}
                   >
                     {index + 1}
                   </motion.div>
-                  <h3 className="text-2xl font-semibold mb-4 text-gray-900">{step.title}</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed">
+                  <h3 className="text-2xl font-semibold mb-4 text-gray-900 group-hover:text-purple-600 transition-colors duration-300">{step.title}</h3>
+                  <p className="text-gray-600 text-lg leading-relaxed mb-6">
                     {step.description}
                   </p>
+                  <div className="space-y-3">
+                    {step.features.map((feature, featureIndex) => (
+                      <motion.div
+                        key={feature}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: featureIndex * 0.1 }}
+                        className="flex items-center group"
+                      >
+                        <motion.div
+                          whileHover={{ scale: 1.1, rotate: 360 }}
+                          transition={{ duration: 0.3 }}
+                          className="p-2 bg-purple-50 rounded-lg mr-4 group-hover:bg-purple-100 transition-colors duration-300"
+                        >
+                          <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </motion.div>
+                        <span className="text-gray-700 group-hover:text-purple-600 transition-colors duration-300">{feature}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                  <motion.div
+                    className="mt-6 h-1 bg-gray-100 rounded-full overflow-hidden"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "100%" }}
+                    transition={{ duration: 1, delay: index * 0.2 }}
+                  >
+                    <motion.div
+                      className={`h-full bg-gradient-to-r ${step.color}`}
+                      animate={{
+                        x: [0, 20, 0]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+                  </motion.div>
                 </div>
               </motion.div>
             ))}

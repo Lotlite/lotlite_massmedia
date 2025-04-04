@@ -186,34 +186,6 @@ export default function ContactPage() {
           >
             Have a question or want to discuss your project? We're here to help.
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-8"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, rotate: 1 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl group cursor-pointer"
-              onClick={() => {
-                const formSection = document.getElementById('contact-form');
-                formSection?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Contact Us Now
-              <motion.svg
-                className="ml-2 w-6 h-6 transform group-hover:translate-x-1 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5 }}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </motion.svg>
-            </motion.button>
-          </motion.div>
         </div>
         <motion.div
           animate={floatingAnimation}
