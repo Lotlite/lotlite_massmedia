@@ -39,8 +39,10 @@ const Footer = () => {
               {[
                 { name: 'SEO', path: '/services/seo' },
                 { name: 'Social Media Marketing', path: '/services/social-media-marketing' },
-                { name: 'Paid Advertising', path: '/services/paid-advertising' },
-                { name: 'Content Marketing', path: '/services/content-marketing' }
+                { name: 'Google Ads Management', path: '/services/google-ads' },
+                { name: 'Content Marketing', path: '/services/content-marketing' },
+                { name: 'Web Design & Development', path: '/services/web-design' },
+                { name: 'Local SEO', path: '/services/local-seo' }
               ].map((service) => (
                 <li key={service.name} className="relative group">
                   <Link href={service.path} className="text-gray-400 hover:text-white transition-colors inline-block">
