@@ -58,8 +58,36 @@ const services = [
   }
 ];
 
+const faqs = [
+  {
+    question: 'What is Local SEO?',
+    answer: 'Local SEO is the process of optimizing your online presence to attract more customers from relevant local searches. It helps businesses promote their products and services to local customers when they need them.'
+  },
+  {
+    question: 'How long does it take to see results from Local SEO?',
+    answer: 'Local SEO results typically start showing within 3-6 months, though this can vary based on your location, competition, and current online presence. Some businesses may see improvements sooner.'
+  },
+  {
+    question: 'Do I need a physical location for Local SEO?',
+    answer: 'While having a physical location is beneficial, it\'s not always necessary. Service-area businesses can also benefit from Local SEO by targeting specific geographic regions they serve.'
+  },
+  {
+    question: 'What\'s included in your Local SEO services?',
+    answer: 'Our Local SEO services include Google Business Profile optimization, local citation building, review management, local content creation, website optimization for local searches, and comprehensive local keyword research.'
+  },
+  {
+    question: 'How do you improve local rankings?',
+    answer: 'We improve local rankings through a combination of strategies including optimizing your Google Business Profile, building local citations, managing reviews, creating local content, and ensuring your website is optimized for local searches.'
+  },
+  {
+    question: 'Can you help with multiple locations?',
+    answer: 'Yes! We have experience helping businesses with multiple locations optimize their local presence. We create unique strategies for each location while maintaining brand consistency.'
+  }
+];
+
 export default function LocalSEOPage() {
   const router = useRouter();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -214,210 +242,287 @@ export default function LocalSEOPage() {
       {/* Main Content Section */}
       <section className="py-20 bg-white relative">
         <div className="container mx-auto px-4 relative">
-          <div className="grid md:grid-cols-2 gap-16 items-center relative">
-            {/* Benefits Section */}
-            <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative">
-              <div className="container mx-auto px-4 relative">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7 }}
-                  className="text-center mb-16"
-                >
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7 }}
-                    className="inline-block px-4 py-2 bg-blue-100 rounded-full mb-6"
-                  >
-                    <span className="text-blue-600 font-semibold">Why Local SEO?</span>
-                  </motion.div>
-                  <h2 className="text-4xl font-bold text-blue-600">Benefits of Local SEO</h2>
-                </motion.div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                  {benefits.map((benefit, index) => (
-                    <motion.div
-                      key={benefit.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group"
-                      whileHover={{ y: -5 }}
-                    >
-                      <motion.div
-                        className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        initial={false}
-                        animate={{
-                          scale: [1, 1.2, 1],
-                          opacity: [0, 0.1, 0],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                      />
-                      <div className="relative z-10">
-                        <motion.div
-                          className="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300"
-                          animate={{
-                            y: [0, -5, 0],
-                            rotate: [0, 5, 0]
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        >
-                          {benefit.icon}
-                        </motion.div>
-                        <h3 className="text-2xl font-semibold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-                          {benefit.title}
-                        </h3>
-                        <p className="text-gray-600">
-                          {benefit.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* Services Section */}
-            <section className="py-20 bg-white relative">
-              <div className="container mx-auto px-4 relative">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7 }}
-                  className="text-center mb-16"
-                >
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7 }}
-                    className="inline-block px-4 py-2 bg-blue-100 rounded-full mb-6"
-                  >
-                    <span className="text-blue-600 font-semibold">Our Services</span>
-                  </motion.div>
-                  <h2 className="text-4xl font-bold text-blue-600">Local SEO Services</h2>
-                </motion.div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                  {services.map((service, index) => (
-                    <motion.div
-                      key={service.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group"
-                      whileHover={{ y: -5 }}
-                    >
-                      <motion.div
-                        className={`absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                        initial={false}
-                        animate={{
-                          scale: [1, 1.2, 1],
-                          opacity: [0, 0.1, 0],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                      />
-                      <div className="relative z-10">
-                        <motion.div
-                          className="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300"
-                          animate={{
-                            y: [0, -5, 0],
-                            rotate: [0, 5, 0]
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        >
-                          {service.icon}
-                        </motion.div>
-                        <h3 className="text-2xl font-semibold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-                          {service.title}
-                        </h3>
-                        <p className="text-gray-600">
-                          {service.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative">
-        <div className="container mx-auto px-4 relative">
-          {/* CTA Section */}
-          <section className="py-20 bg-green-600 relative overflow-hidden">
-            <div className="container mx-auto px-4 text-center relative z-10">
+          {/* Benefits Section */}
+          <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative">
+            <div className="container mx-auto px-4 relative">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
-                className="max-w-3xl mx-auto"
+                className="text-center mb-16"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7 }}
-                  className="inline-block px-4 py-2 bg-white/10 backdrop-blur-md rounded-full mb-6"
+                  className="inline-block px-4 py-2 bg-blue-100 rounded-full mb-6"
                 >
-                  <span className="text-white font-semibold">Ready to Get Started?</span>
+                  <span className="text-blue-600 font-semibold">Why Local SEO?</span>
                 </motion.div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-                  Dominate Your Local Market Today
-                </h2>
-                <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-                  Let's work together to improve your local search visibility and attract more customers to your business.
-                </p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    try {
-                      router.push('/contact');
-                    } catch (error) {
-                      console.error('Navigation error:', error);
-                      window.location.href = '/contact';
-                    }
-                  }}
-                  className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl group cursor-pointer"
-                >
-                  Start Your Local SEO Journey
-                  <motion.svg 
-                    className="ml-2 w-6 h-6 transform group-hover:translate-x-1 transition-transform duration-300" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                    animate={{
-                      x: [0, 5, 0]
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      repeatType: "reverse"
-                    }}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </motion.svg>
-                </motion.button>
+                <h2 className="text-4xl font-bold text-blue-600">Benefits of Local SEO</h2>
               </motion.div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {benefits.map((benefit, index) => (
+                  <motion.div
+                    key={benefit.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group"
+                    whileHover={{ y: -5 }}
+                  >
+                    <motion.div
+                      className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      initial={false}
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0, 0.1, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    <div className="relative z-10">
+                      <motion.div
+                        className="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300"
+                        animate={{
+                          y: [0, -5, 0],
+                          rotate: [0, 5, 0]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        {benefit.icon}
+                      </motion.div>
+                      <h3 className="text-2xl font-semibold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-gray-600 text-lg leading-relaxed">
+                        {benefit.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </section>
+
+          {/* Services Section with Enhanced Animations */}
+          <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative">
+            <div className="container mx-auto px-4 relative">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7 }}
+                className="text-center mb-16"
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7 }}
+                  className="inline-block px-4 py-2 bg-blue-100 rounded-full mb-6"
+                >
+                  <span className="text-blue-600 font-semibold">Our Services</span>
+                </motion.div>
+                <h2 className="text-4xl font-bold text-blue-600">Local SEO Solutions</h2>
+              </motion.div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {services.map((service, index) => (
+                  <motion.div
+                    key={service.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group"
+                    whileHover={{ y: -5 }}
+                  >
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                      initial={false}
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0, 0.1, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    <div className="relative z-10">
+                      <motion.div
+                        className="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300"
+                        animate={{
+                          y: [0, -5, 0],
+                          rotate: [0, 5, 0]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        {service.icon}
+                      </motion.div>
+                      <h3 className="text-2xl font-semibold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 text-lg leading-relaxed">
+                        {service.description}
+                      </p>
+                      <motion.div
+                        className="mt-6 h-1 bg-gray-100 rounded-full overflow-hidden"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "100%" }}
+                        transition={{ duration: 1, delay: index * 0.2 }}
+                      >
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-blue-500 to-blue-600"
+                          animate={{
+                            x: [0, 20, 0]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        />
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white relative">
+        <div className="container mx-auto px-4 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-16"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="inline-block px-4 py-2 bg-blue-100 rounded-full mb-6"
+            >
+              <span className="text-blue-600 font-semibold">Common Questions</span>
+            </motion.div>
+            <h2 className="text-4xl font-bold text-blue-600">Frequently Asked Questions</h2>
+          </motion.div>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
+              >
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                >
+                  <span className="text-xl font-semibold text-gray-900">{faq.question}</span>
+                  <motion.svg
+                    animate={{ rotate: openFaq === index ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-6 h-6 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </motion.svg>
+                </motion.button>
+                {openFaq === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="px-8 py-6 bg-gray-50"
+                  >
+                    <p className="text-lg text-gray-700 leading-relaxed">{faq.answer}</p>
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Enhanced CTA Section */}
+      <section className="py-20 bg-blue-600 relative overflow-hidden">
+        <motion.div
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10" />
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              background: "radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%)",
+              y,
+              opacity
+            }}
+          />
+        </motion.div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl mx-auto"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="inline-block px-4 py-2 bg-white/10 backdrop-blur-md rounded-full mb-6"
+            >
+              <span className="text-white font-semibold">Get Started Today</span>
+            </motion.div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+              Ready to Dominate Your Local Market?
+            </h2>
+            <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
+              Let's work together to improve your local visibility and attract more customers to your business.
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                try {
+                  router.push('/contact');
+                } catch (error) {
+                  console.error('Navigation error:', error);
+                  window.location.href = '/contact';
+                }
+              }}
+              className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl group cursor-pointer"
+            >
+              Start Your Local SEO Journey
+              <svg className="ml-2 w-6 h-6 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </motion.button>
+          </motion.div>
         </div>
       </section>
     </div>
