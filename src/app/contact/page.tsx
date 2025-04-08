@@ -67,19 +67,53 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    // Reset form data
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: ''
-    });
-    // Refresh the page
-    window.location.reload();
+    try {
+      console.log('Submitting form data:', formData);
+      
+      const response = await fetch('http://localhost:5000/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      console.log('Response status:', response.status);
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('Form submitted successfully:', data);
+      
+      // Clear form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+      
+      // Show success message
+      alert('Thank you for your message! We will get back to you soon.');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Show specific error message to user
+      if (error instanceof Error) {
+        if (error.message.includes('Failed to fetch')) {
+          alert('Could not connect to the server. Please make sure the server is running.');
+        } else {
+          alert(error.message);
+        }
+      } else {
+        alert('There was an error submitting your form. Please try again.');
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
