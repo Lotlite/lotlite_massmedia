@@ -14,6 +14,7 @@ module.exports = {
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',
         'blob': 'blob 7s infinite',
+        'fade-in': 'fade-in 0.8s ease-out forwards'
       },
       keyframes: {
         'gradient-x': {
@@ -40,6 +41,10 @@ module.exports = {
             transform: 'translate(0px, 0px) scale(1)',
           },
         },
+        'fade-in': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        }
       },
     },
   },
