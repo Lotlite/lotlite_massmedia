@@ -15,7 +15,7 @@ const services = [
     icon: '📊',
     color: 'from-purple-500 to-indigo-600',
     features: ['Real-time tracking', 'Custom reports', 'Competitor analysis'],
-    image: '/images/analytics.png'
+    image: '/images/socialmedia.png'
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const services = [
     icon: '📅',
     color: 'from-blue-500 to-cyan-600',
     features: ['Visual calendar', 'Auto-posting', 'Content library'],
-    image: '/images/scheduler.png'
+    image: '/images/contentmarketing2.png'
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const services = [
     icon: '🤖',
     color: 'from-green-500 to-emerald-600',
     features: ['Smart responses', 'Comment management', '24/7 monitoring'],
-    image: '/images/bot.png'
+    image: '/images/digital_head_image.webp'
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const services = [
     icon: '🤝',
     color: 'from-pink-500 to-rose-600',
     features: ['Contact management', 'Campaign tracking', 'Performance metrics'],
-    image: '/images/crm.png'
+    image: '/images/Contentmarketing.webp'
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const services = [
     icon: '✨',
     color: 'from-yellow-500 to-orange-600',
     features: ['AI writing', 'Image generation', 'Hashtag optimization'],
-    image: '/images/generator.png'
+    image: '/images/Socialmedia2.jpeg'
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ const services = [
     icon: '📈',
     color: 'from-red-500 to-pink-600',
     features: ['Custom widgets', 'Data visualization', 'Export options'],
-    image: '/images/dashboard.png'
+    image: '/images/72ff74d4e3da8c71d8329a5ddae5a524-removebg-preview.png'
   }
 ];
 

@@ -1,1 +1,7 @@
-{}
+{
+  "/page": "app/page.js",
+  "/about/page": "app/about/page.js",
+  "/customers/app-digital/page": "app/customers/app-digital/page.js",
+  "/customers/small-brands/page": "app/customers/small-brands/page.js",
+  "/not-found": "app/not-found.js"
+}
