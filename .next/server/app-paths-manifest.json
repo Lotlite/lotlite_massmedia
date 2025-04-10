@@ -1,1 +1,7 @@
-{}
+{
+  "/contact/page": "app/contact/page.js",
+  "/customers/growing-brands/page": "app/customers/growing-brands/page.js",
+  "/customers/small-brands/page": "app/customers/small-brands/page.js",
+  "/not-found": "app/not-found.js",
+  "/page": "app/page.js"
+}
