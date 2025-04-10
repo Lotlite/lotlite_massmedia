@@ -1,7 +1,0 @@
-{
-  "/page": "app/page.js",
-  "/services/paid-advertising/page": "app/services/paid-advertising/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/customers/app-digital/page": "app/customers/app-digital/page.js",
-  "/customers/small-brands/page": "app/customers/small-brands/page.js"
-}

@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
@@ -21,15 +24,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              {[
-                { name: 'Home', path: '/' },
-                { name: 'About Us', path: '/about' },
-                { name: 'Blog', path: '/blog' },
-                { name: 'Contact', path: '/contact' }
-              ].map((link) => (
-                <li key={link.name} className="relative group">
-                  <Link href={link.path} className="text-gray-400 hover:text-white transition-colors inline-block">
-                    {link.name}
+              {['Home', 'About Us', 'Blogs', 'Contact'].map((link) => (
+                <li key={link} className="relative group">
+                  <Link href={`/${link.toLowerCase().replace(' ', '-')}`} className="text-gray-400 hover:text-white transition-colors inline-block">
+                    {link}
                     <span className="block h-[2px] bg-white w-0 transition-all duration-300 group-hover:w-full"></span>
                   </Link>
                 </li>
