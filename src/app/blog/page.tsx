@@ -250,7 +250,7 @@ const BlogPage = () => {
             poster="/images/blogs2.jpg"
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/images/Social media marketing.mp4" type="video/mp4" />
+            <source src="/images/blog3.mp4" type="video/mp4" />
             <source src="/images/Contentmarketing.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
