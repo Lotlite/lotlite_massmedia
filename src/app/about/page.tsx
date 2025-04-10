@@ -51,73 +51,67 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white" ref={containerRef}>
       {/* Hero Section */}
-      <section className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/images/about bg.png"
+          alt="About Us Background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/60" />
         <motion.div 
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-        >
-          <Image
-            src="/images/socialmedia3.jpg"
-            alt="Digital Marketing Background"
-            fill
-            className="object-cover"
-            priority
-          />
-          <motion.div 
-            className="absolute inset-0 bg-gradient-to-br from-blue-600/80 via-blue-700/80 to-blue-900/80"
-            animate={{
-              background: [
-                "linear-gradient(to bottom right, rgba(37, 99, 235, 0.8), rgba(29, 78, 216, 0.8), rgba(30, 64, 175, 0.8))",
-                "linear-gradient(to bottom right, rgba(30, 64, 175, 0.8), rgba(37, 99, 235, 0.8), rgba(29, 78, 216, 0.8))",
-                "linear-gradient(to bottom right, rgba(29, 78, 216, 0.8), rgba(30, 64, 175, 0.8), rgba(37, 99, 235, 0.8))"
-              ]
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-          />
-          <motion.div 
-            className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10"
-            animate={{
-              scale: [1, 1.1, 1],
-              opacity: [0.1, 0.15, 0.1]
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-          />
-        </motion.div>
-        <div className="container mx-auto px-4 h-full flex items-center relative z-10">
+          className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10"
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.1, 0.15, 0.1],
+            rotate: [0, 1, 0]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            repeatType: "reverse"
+          }}
+        />
+        <div className="container mx-auto px-4 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            className="inline-block px-6 py-2 bg-white/20 backdrop-blur-md rounded-full mb-6"
           >
-            <motion.h1 
-              className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              whileHover={{ scale: 1.02 }}
-            >
-              A Leading Digital Marketing Agency
-            </motion.h1>
-            <motion.p 
-              className="text-lg md:text-xl text-white/90 max-w-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              whileHover={{ scale: 1.01 }}
-            >
-              Focused on Digital Transformation and Innovation
-            </motion.p>
+            <span className="text-white font-semibold">Our Story</span>
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl md:text-6xl font-bold text-white mb-4"
+          >
+            About Us
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto"
+          >
+            Discover the story behind our mission to connect brands with the perfect influencers
+          </motion.p>
+          <motion.div
+            animate={{
+              y: [0, -10, 0]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          >
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
           </motion.div>
         </div>
       </section>
@@ -331,6 +325,75 @@ const AboutPage = () => {
                 </motion.div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">{value.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why We Exist Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-16"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="inline-block px-4 py-2 bg-blue-100 rounded-full mb-6"
+            >
+              <span className="text-blue-600 font-semibold">Our Purpose</span>
+            </motion.div>
+            <h2 className="text-4xl font-bold text-blue-600">Why We Exist</h2>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Empower Brands",
+                description: "We help brands find their perfect influencer match to amplify their message and reach their target audience effectively.",
+                icon: "🚀"
+              },
+              {
+                title: "Support Creators",
+                description: "We provide a platform for influencers to showcase their talent and connect with brands that align with their values.",
+                icon: "💫"
+              },
+              {
+                title: "Drive Innovation",
+                description: "We continuously innovate our platform to deliver cutting-edge solutions for influencer marketing.",
+                icon: "✨"
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group"
+                whileHover={{ y: -5 }}
+              >
+                <motion.div
+                  className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={false}
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0, 0.1, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                <div className="relative z-10">
+                  <div className="text-4xl mb-4">{item.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{item.title}</h3>
+                  <p className="text-gray-600">{item.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>

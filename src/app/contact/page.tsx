@@ -17,7 +17,7 @@ const floatingAnimation = {
 const contactInfo = [
   {
     title: 'Email',
-    value: 'contact@marketpro.com',
+    value: 'contact@lotlitefintech.com',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -26,7 +26,7 @@ const contactInfo = [
   },
   {
     title: 'Phone',
-    value: '+1 (555) 123-4567',
+    value: '+91 8805843309, +91 9766499364',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -35,7 +35,7 @@ const contactInfo = [
   },
   {
     title: 'Address',
-    value: '123 Business Street, Suite 100, New York, NY 10001',
+    value: '122, Gera Imperium, Opp- Wipro, Hinjewadi Phase 2, Rajiv Gandhi Infotech Park, Pune, Maharashtra 411057',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -71,8 +71,15 @@ export default function ContactPage() {
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     setIsSubmitting(false);
-    // Redirect to thank you page or show success message
-    router.push('/thank-you');
+    // Reset form data
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    });
+    // Refresh the page
+    window.location.reload();
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -85,118 +92,33 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white" ref={containerRef}>
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <motion.div 
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-        >
-          <Image
-            src="/images/socialmedia3.jpg"
-            alt="Contact Background"
-            fill
-            className="object-cover"
-            priority
-          />
-          <motion.div 
-            className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/80 to-blue-900/80"
-            animate={{
-              background: [
-                "linear-gradient(to bottom right, rgba(30, 58, 138, 0.8), rgba(30, 64, 175, 0.8), rgba(30, 58, 138, 0.8))",
-                "linear-gradient(to bottom right, rgba(30, 64, 175, 0.8), rgba(30, 58, 138, 0.8), rgba(30, 64, 175, 0.8))",
-                "linear-gradient(to bottom right, rgba(30, 58, 138, 0.8), rgba(30, 64, 175, 0.8), rgba(30, 58, 138, 0.8))"
-              ]
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-          />
-          <motion.div 
-            className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10"
-            animate={{
-              scale: [1, 1.1, 1],
-              opacity: [0.1, 0.15, 0.1],
-              rotate: [0, 1, 0]
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-          />
-          <motion.div
-            className="absolute inset-0"
-            style={{
-              background: "radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%)",
-              y,
-              opacity
-            }}
-          />
-          <motion.div
-            className="absolute inset-0"
-            animate={{
-              background: [
-                "radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 70%)",
-                "radial-gradient(circle at 70% 20%, rgba(255,255,255,0.1) 0%, transparent 70%)",
-                "radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 70%)"
-              ]
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-          />
-        </motion.div>
-        <div className="relative z-10 text-center px-4">
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-            className="mb-8"
-          >
-            <motion.div
-              className="inline-block px-6 py-2 bg-white/10 backdrop-blur-md rounded-full mb-6"
-              whileHover={{ scale: 1.05, rotate: 2 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.3 }}
-            >
-              <span className="text-white text-lg">Get in Touch</span>
-            </motion.div>
-          </motion.div>
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/images/contact bg.jpg"
+          alt="Contact Us Background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="container mx-auto px-4 relative z-10 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-6"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            className="text-4xl md:text-6xl font-bold text-white mb-4"
           >
-            Let's Start a Conversation
+            Contact Us
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
-            whileHover={{ scale: 1.01 }}
+            className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto"
           >
-            Have a question or want to discuss your project? We're here to help.
+            Get in touch with us to discuss how we can help grow your business
           </motion.p>
         </div>
-        <motion.div
-          animate={floatingAnimation}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          whileHover={{ scale: 1.2, rotate: 360 }}
-          transition={{ duration: 0.5 }}
-        >
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </motion.div>
       </section>
 
       {/* Contact Form Section */}
