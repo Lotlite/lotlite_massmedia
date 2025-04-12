@@ -77,7 +77,11 @@ const testimonials = [
     name: 'Emma Rodriguez',
     role: 'Founder',
     company: 'EcoEssentials',
+<<<<<<< HEAD
     image: '/images/small brands.jpg',
+=======
+    image: '/images/contentmarketing2.png',
+>>>>>>> pranay_updated
     content: 'Since partnering with influencers through this platform, our sales have increased by 45%. The ROI is incredible!',
     rating: 5,
   },
@@ -85,7 +89,11 @@ const testimonials = [
     name: 'David Chen',
     role: 'Marketing Manager',
     company: 'LocalBites',
+<<<<<<< HEAD
     image: '/images/contentmarketing2.png',
+=======
+    image: '/images/digital_head_image.webp',
+>>>>>>> pranay_updated
     content: 'The platform made it so easy to find and connect with food influencers who genuinely love our products.',
     rating: 5,
   },
@@ -93,7 +101,11 @@ const testimonials = [
     name: 'Sophia Patel',
     role: 'Owner',
     company: 'Handmade Haven',
+<<<<<<< HEAD
     image: '/images/digital_head_image.webp',
+=======
+    image: '/images/Socialmedia2.jpeg',
+>>>>>>> pranay_updated
     content: 'As a small business owner, this platform has been a game-changer. We\'ve reached customers we never could have on our own.',
     rating: 5,
   },
@@ -246,6 +258,7 @@ export default function SmallBrandsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
+<<<<<<< HEAD
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -257,6 +270,12 @@ export default function SmallBrandsPage() {
             </motion.div>
             <h2 className="text-4xl font-bold text-gray-900">How It Works</h2>
             <p className="text-xl text-gray-600 mt-4 max-w-2xl mx-auto">
+=======
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              How It Works
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+>>>>>>> pranay_updated
               Our platform makes it easy to connect with influencers and grow your brand
             </p>
           </motion.div>
@@ -271,6 +290,7 @@ export default function SmallBrandsPage() {
               <motion.div
                 key={index}
                 variants={itemVariants}
+<<<<<<< HEAD
                 className="relative group"
               >
                 <div className="bg-white rounded-2xl shadow-lg p-8 h-full border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
@@ -290,6 +310,39 @@ export default function SmallBrandsPage() {
                     </svg>
                   </div>
                 )}
+=======
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                whileHover={{ y: -5 }}
+              >
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                  initial={false}
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0, 0.1, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                <div className="relative z-10">
+                  <motion.div
+                    className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center text-3xl mb-6 mx-auto"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {step.icon}
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 text-center">
+                    {step.description}
+                  </p>
+                </div>
+>>>>>>> pranay_updated
               </motion.div>
             ))}
           </motion.div>
@@ -297,7 +350,11 @@ export default function SmallBrandsPage() {
       </section>
 
       {/* Benefits Section */}
+<<<<<<< HEAD
       <section className="py-20 bg-gray-50">
+=======
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+>>>>>>> pranay_updated
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -306,6 +363,7 @@ export default function SmallBrandsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
+<<<<<<< HEAD
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -318,6 +376,13 @@ export default function SmallBrandsPage() {
             <h2 className="text-4xl font-bold text-gray-900">Benefits for Small Brands</h2>
             <p className="text-xl text-gray-600 mt-4 max-w-2xl mx-auto">
               Discover how our platform can help your small brand thrive in the digital landscape
+=======
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Benefits for Small Brands
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Discover why our platform is the perfect solution for growing your brand
+>>>>>>> pranay_updated
             </p>
           </motion.div>
           <motion.div
@@ -331,6 +396,7 @@ export default function SmallBrandsPage() {
               <motion.div
                 key={index}
                 variants={itemVariants}
+<<<<<<< HEAD
                 className="relative group"
               >
                 <div className="bg-white rounded-2xl shadow-lg p-8 h-full border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
@@ -342,6 +408,38 @@ export default function SmallBrandsPage() {
                     <h3 className="text-xl font-bold text-gray-900 mb-4">{benefit.title}</h3>
                     <p className="text-gray-600">{benefit.description}</p>
                   </div>
+=======
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                whileHover={{ y: -5 }}
+              >
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                  initial={false}
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0, 0.1, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                <div className="relative z-10">
+                  <motion.div
+                    className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center text-3xl mb-6 mx-auto"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {benefit.icon}
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600 text-center">
+                    {benefit.description}
+                  </p>
+>>>>>>> pranay_updated
                 </div>
               </motion.div>
             ))}
@@ -350,8 +448,13 @@ export default function SmallBrandsPage() {
       </section>
 
       {/* Testimonials Section */}
+<<<<<<< HEAD
       <section className="py-20 bg-white relative">
         <div className="container mx-auto px-4 relative">
+=======
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+>>>>>>> pranay_updated
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -359,6 +462,7 @@ export default function SmallBrandsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
+<<<<<<< HEAD
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -386,6 +490,31 @@ export default function SmallBrandsPage() {
               >
                 <motion.div
                   className="absolute inset-0 bg-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+=======
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Hear from small brands that have successfully grown with our platform
+            </p>
+          </motion.div>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                whileHover={{ y: -5 }}
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+>>>>>>> pranay_updated
                   initial={false}
                   animate={{
                     scale: [1, 1.2, 1],
@@ -409,16 +538,28 @@ export default function SmallBrandsPage() {
                       />
                     </div>
                     <div>
+<<<<<<< HEAD
                       <h3 className="text-xl font-semibold text-gray-900">{testimonial.name}</h3>
                       <p className="text-gray-600">{testimonial.role}, {testimonial.company}</p>
                     </div>
                   </div>
                   <p className="text-gray-700 text-lg italic mb-6">"{testimonial.content}"</p>
+=======
+                      <h3 className="text-xl font-bold text-gray-900">{testimonial.name}</h3>
+                      <p className="text-gray-600">{testimonial.role}, {testimonial.company}</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 italic mb-6">"{testimonial.content}"</p>
+>>>>>>> pranay_updated
                   <div className="flex text-yellow-400">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <motion.svg
                         key={i}
+<<<<<<< HEAD
                         className="w-6 h-6"
+=======
+                        className="w-5 h-5"
+>>>>>>> pranay_updated
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         whileHover={{ scale: 1.2 }}
@@ -431,12 +572,20 @@ export default function SmallBrandsPage() {
                 </div>
               </motion.div>
             ))}
+<<<<<<< HEAD
           </div>
+=======
+          </motion.div>
+>>>>>>> pranay_updated
         </div>
       </section>
 
       {/* FAQ Section */}
+<<<<<<< HEAD
       <section className="py-20 bg-gray-50">
+=======
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+>>>>>>> pranay_updated
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -445,6 +594,7 @@ export default function SmallBrandsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
+<<<<<<< HEAD
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -472,6 +622,29 @@ export default function SmallBrandsPage() {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+=======
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Find answers to common questions about our platform
+            </p>
+          </motion.div>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto space-y-4"
+          >
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden"
+              >
+                <motion.button
+>>>>>>> pranay_updated
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
                 >
@@ -495,17 +668,29 @@ export default function SmallBrandsPage() {
                     transition={{ duration: 0.3 }}
                     className="px-8 py-6 bg-gray-50"
                   >
+<<<<<<< HEAD
                     <p className="text-lg text-gray-700 leading-relaxed">{faq.answer}</p>
+=======
+                    <p className="text-lg text-gray-700">{faq.answer}</p>
+>>>>>>> pranay_updated
                   </motion.div>
                 )}
               </motion.div>
             ))}
+<<<<<<< HEAD
           </div>
+=======
+          </motion.div>
+>>>>>>> pranay_updated
         </div>
       </section>
 
       {/* CTA Section */}
+<<<<<<< HEAD
       <section className="py-20 bg-gradient-to-br from-indigo-500 to-purple-600 relative overflow-hidden">
+=======
+      <section className="py-20 bg-gradient-to-br from-indigo-600 to-purple-600 relative overflow-hidden">
+>>>>>>> pranay_updated
         <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10" />
         <div className="container mx-auto px-4 relative">
           <motion.div
@@ -515,12 +700,18 @@ export default function SmallBrandsPage() {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto"
           >
+<<<<<<< HEAD
             <h2 className="text-4xl font-bold text-white mb-6">
               Ready to Grow Your Small Brand?
+=======
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Ready to Grow Your Brand?
+>>>>>>> pranay_updated
             </h2>
             <p className="text-xl text-white/90 mb-12">
               Join thousands of small brands already using our platform to connect with influencers
             </p>
+<<<<<<< HEAD
             <Link
               href="/contact"
               className="inline-flex items-center bg-white text-indigo-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -627,6 +818,42 @@ export default function SmallBrandsPage() {
           </div>
         </div>
       </footer>
+=======
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                try {
+                  router.push('/contact');
+                } catch (error) {
+                  console.error('Navigation error:', error);
+                  window.location.href = '/contact';
+                }
+              }}
+              className="bg-white text-indigo-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl group cursor-pointer"
+            >
+              Get Started Today
+              <motion.svg 
+                className="ml-2 w-6 h-6 inline-block transform group-hover:translate-x-1 transition-transform duration-300" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                animate={{
+                  x: [0, 5, 0]
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </motion.svg>
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
+>>>>>>> pranay_updated
     </div>
   );
 } 
