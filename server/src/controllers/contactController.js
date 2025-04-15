@@ -70,4 +70,60 @@ exports.getContact = async (req, res) => {
       error: error.message
     });
   }
+};
+
+// @desc    Delete contact
+// @route   DELETE /api/contacts/:id
+// @access  Public
+exports.deleteContact = async (req, res) => {
+  try {
+    const contact = await Contact.findByIdAndDelete(req.params.id);
+
+    if (!contact) {
+      return res.status(404).json({
+        success: false,
+        error: 'Contact not found'
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: {}
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      error: error.message
+    });
+  }
+};
+
+// @desc    Accept contact
+// @route   PUT /api/contacts/:id/accept
+// @access  Public
+exports.acceptContact = async (req, res) => {
+  try {
+    const contact = await Contact.findByIdAndUpdate(
+      req.params.id,
+      { isAccepted: true },
+      { new: true, runValidators: true }
+    );
+
+    if (!contact) {
+      return res.status(404).json({
+        success: false,
+        error: 'Contact not found'
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: contact
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      error: error.message
+    });
+  }
 }; 

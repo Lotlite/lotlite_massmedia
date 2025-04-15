@@ -3,7 +3,9 @@ const router = express.Router();
 const {
   createContact,
   getContacts,
-  getContact
+  getContact,
+  deleteContact,
+  acceptContact
 } = require('../controllers/contactController');
 
 // Contact routes
@@ -12,6 +14,10 @@ router.route('/')
   .get(getContacts);
 
 router.route('/:id')
-  .get(getContact);
+  .get(getContact)
+  .delete(deleteContact);
+
+router.route('/:id/accept')
+  .put(acceptContact);
 
 module.exports = router; 

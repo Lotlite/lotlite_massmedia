@@ -20,6 +20,10 @@ const contactSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please provide your message'],
     trim: true
+  },
+  isAccepted: {
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: true
