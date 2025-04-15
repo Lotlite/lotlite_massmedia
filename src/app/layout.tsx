@@ -3,7 +3,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import FloatingContact from '@/components/FloatingContact';
+import WhatsAppButton from '@/components/WhatsAppButton';
+import EnquiryButton from '@/components/EnquiryButton';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,7 +27,9 @@ export default function RootLayout({
             {children}
           </main>
         </div>
-        <FloatingContact />
+         {/* Here you can change your whatapp number */}
+        <WhatsAppButton phoneNumber="123456789" />
+        <EnquiryButton />
         <Footer />
       </body>
     </html>
