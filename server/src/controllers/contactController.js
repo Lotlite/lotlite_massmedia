@@ -70,7 +70,7 @@ exports.getContact = async (req, res) => {
       error: error.message
     });
   }
-};
+}; 
 
 // @desc    Delete contact
 // @route   DELETE /api/contacts/:id
